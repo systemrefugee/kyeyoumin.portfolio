@@ -3,7 +3,7 @@
 /* 기본 */
 * { box-sizing: border-box }
 html, body { height: 100% }
-body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #cc3939; background-color:#fafafa; }
+body { margin: 0; font-family: "Nata Sans", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #cc3939; background-color:#fafafa; }
 
 /* 스크롤바 하나만 보이게: archive만 스크롤 */
 html, body { overflow: hidden }
