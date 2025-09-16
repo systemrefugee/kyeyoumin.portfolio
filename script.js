@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", async () => {
            data-video-url="${escapeHtml(p.vimeoEmbedUrl || '')}" 
       >
         <div class="thumbnail-box">
-          <img src="${escapeHtml(p.thumb)}" alt="${escapeHtml(p.title)} thumbnail">
+          <img src="${escapeHtml(p.thumb)}" alt="${escapeHtml(p.title)} thumbnail" loading="lazy">
         </div>
         <h3>${escapeHtml(p.title)}</h3>
         <p>${escapeHtml(p.descShort || '')}</p>
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       applyFilters();
       e.stopPropagation();
       if (window.innerWidth <= 768) {
-        const archiveSection = document.getElementById('archive');
+        const archiveSection = document.getElementById('about');
         if (archiveSection) {
           archiveSection.scrollIntoView();
         }

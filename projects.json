@@ -144,7 +144,7 @@
     "descShort": "MAY courage be with you!",
     "descEn": "This project includes a poster and a booklet designed for the Cinecoms Film Festival May Courage Be with You. Given the abstract theme and the diverse visual tones of each film, I created original illustrations rather than relying on existing images, aiming for a cohesive visual identity. Using a calm color palette, I sought to capture the festival’s theme of films that bring energy and renewal to the late spring doldrums.",
     "descKo": "영화 동아리 씨네꼼의 영화제 <이 영화는 내게 용기를 줍니다> 의 포스터와 소책자를 디자인했다. 주제가 추상적이고 각 영화의 시각적 톤이 제각각이었기 때문에 통일된 룩을 만들기 위해 기존 사진을 사용하지 않고 따로 일러스트를 그렸다. 늦봄의 권태로움에 활력을 주는 영화 라는 주제를 차분한 색감으로 표현하고자 했다.",
-    "images": ["images/may courage/image34.jpg", "images/may courage/image35.png", "images/may courage/image36.png"]
+    "images": ["images/may courage/image35.jpg", "images/may courage/image36.jpg", "images/may courage/image34.jpg"]
   },
   {
     "order": 11,
@@ -173,7 +173,7 @@
     "title": "협동-Challenge",
     "year": "2025",
     "tags": ["2025", "typography"],
-    "thumb": "images/spass workshop/thumb_2.jpg",
+    "thumb": "images/spass workshop/thumb.jpg",
     "descShort": "SPASS workshop in SNU",
     "descEn": "This work was created during a workshop led by Studio Spass at SNU, under the theme of Collaboration. My chosen keyword was Challenge. Inspired by the patterns of wooden floorboards, I developed the design by observing and reinterpreting their structure.",
     "descKo": "이 작품은 서울대학교에서 열린 Studio Spass 워크숍에서, 전체 주제 협동 아래 도전이라는 키워드를 선택해 만든 작업이다. 바닥 마루의 형태를 관찰하고 재해석하여 디자인으로 발전시켰다.",
@@ -188,7 +188,7 @@
     "descShort": "",
     "descEn": "This animation tells the story of a fish struggling to break out of the mould of the world and reach a larger world. A fish tries to escape from a plastic bag, but is unable to break through the transparent wall in front of it, and escapes through a chance encounter. Dreaming of flying, the fish faces the ocean and learns to fly in it. The video was exhibited alongside the ceramic works of the collaborating artist.",
     "descKo": "이 애니메이션은 세상의 틀을 깨고 더 큰 세계로 나아가려는 한 물고기의 이야기를 담고 있다. 물고기는 비닐봉지에서 빠져나오려 하지만 눈앞의 투명한 벽을 뚫지 못하고, 우연한 계기를 통해 탈출하게 된다. 날기를 꿈꾸던 물고기는 바다와 마주하며 그 안에서 나는 법을 배운다. 이 영상은 협업 작가의 도자기 작품과 함께 전시되었다.",
-    "images": ["images/ttww/image15.png", "images/ttww/comp230131_1-ezgif.com-speed.gif", "images/ttww/image17.png", "images/ttww/image18.JPG"],
+    "images": ["images/ttww/image15.png", "images/ttww/comp230131_1-ezgif.com-speed.gif", "images/ttww/image17.jpg", "images/ttww/image18.jpeg"],
     "vimeoEmbedUrl": ["https://player.vimeo.com/video/1006326565?h=b29e94d479"]
   },
   {

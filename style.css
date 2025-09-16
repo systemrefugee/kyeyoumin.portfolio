@@ -3,7 +3,7 @@
 /* 기본 */
 * { box-sizing: border-box }
 html, body { height: 100% }
-body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #cc3939; background-color:#f2f2f2; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #cc3939; background-color:#fafafa; }
 
 /* 스크롤바 하나만 보이게: archive만 스크롤 */
 html, body { overflow: hidden }
@@ -12,11 +12,11 @@ html, body { overflow: hidden }
   grid-template-columns: 320px 1fr; 
   height: 100vh;
   overflow: hidden;
-  padding: 0 1.5rem; /* 위아래는 0, 좌우는 4rem의 여백을 줌 */
+  padding: 0; /* 위아래는 0, 좌우는 4rem의 여백을 줌 */
   box-sizing: border-box; /* 패딩이 너비 계산에 포함되도록 함 */
   }
 #about { position: sticky; top: 0; height: 100vh; padding: 2rem; background: transparent; overflow: auto;  }
-#archive { height: 100vh; overflow-y: auto; padding: 2rem 2rem 8rem; }
+#archive { height: 100vh; overflow-y: auto; padding: 2rem 2rem 6rem; }
 
 @media (min-width: 769px) {
    .layout {
@@ -24,14 +24,7 @@ html, body { overflow: hidden }
   }
 }
 
-@media (max-width: 768px) {
 
-
-  #archive {
-    margin-bottom: -12rem;
-    padding-bottom: -8rem;
-  }
-}
 
 /* 필터 버튼 */
 #filter-buttons {
@@ -48,7 +41,7 @@ html, body { overflow: hidden }
 }
 #filter-buttons button {
   margin: 0 .5rem .5rem 0; padding: .4rem 1rem;
-  border: 1px solid #cc393980; background: transparent; cursor: pointer; border-radius: 999px
+  border: 0px solid #cc393980; background: #a8d1e980; cursor: pointer; border-radius: 999px
 }
 
 
@@ -56,7 +49,7 @@ html, body { overflow: hidden }
 .project-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  justify-items: start; }
 
 
-.project { width: 340px; background: transparent; border: none; border-radius: 12px; padding: 1.5rem }
+.project { background: transparent; border: none; border-radius: 12px; padding: 1.5rem }
 .project.hidden { display: none }
 
 /* 썸네일 비율 고정: 패딩 방식 (1:1) */
@@ -68,7 +61,7 @@ html, body { overflow: hidden }
 
 /* 카드 내부 태그 버튼 */
 .tag-list { margin-top: .5rem }
-.tag { display: inline-block; margin: 0 .5rem .5rem 0; padding: .25rem .6rem; background: transparent; border: 1px solid #cc393980; border-radius: 999px; font-size: .75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;  font-family: "Nata Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+.tag { display: inline-block; margin: 0 .5rem .5rem 0; padding: .25rem .6rem; background: #a8d1e980; border: 0px solid #cc393980; border-radius: 999px; font-size: .75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;  font-family: "Nata Sans", system-ui, -apple-system, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;}
 .tag:hover { background: #cc3939; color: #fff !important }
 
@@ -186,17 +179,24 @@ body.modal-open { overflow: hidden }
 .nav-fixed:hover { color: #a8d1e9 }
 body.modal-open .nav-fixed { display: inline-flex }
 
+#about-content {
+  color: #cc3939;
+}
+
 /* 모바일 대응 */
 @media (max-width: 768px) {
   .layout { display: block; height: auto }
   html, body { overflow: auto }
   #about, #archive { height: auto }
     #about {
+      height: auto;
+      position: static;
     padding-top: 1.25rem;
     text-align: center; 
   }
   #about-content {
     text-align: left; /* 설명글 부분만 다시 왼쪽으로 정렬 */
+    
   }
   .nav-fixed { font-size: 2rem; padding: .8rem 1.1rem }
   .nav-prev { left: 6px } .nav-next { right: 6px }
@@ -675,7 +675,7 @@ body:not(.disable-transition) .about-name-svg {
 
 .copyright {
   font-size: 0.85rem;
-  color: #cc393980;
+  color: #a8d1e9;
   margin-top: 1rem;
 }
 
@@ -752,4 +752,27 @@ body:not(.disable-transition) .about-name-svg {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/* --- 모바일 그리드 레이아웃 조정 --- */
+@media (max-width: 767px) {
+  .project-grid {
+    /* 모바일 화면에서는 2열 그리드로 고정 */
+    grid-template-columns: repeat(2, 1fr);
+    
+    /* 카드 사이의 간격을 조금 줄여서 더 많은 공간 확보 */
+    gap: 1rem;
+  }
+
+  /* 모바일에서는 카드 내부 여백도 살짝 줄여서 썸네일이 더 커 보이게 */
+  .project {
+    padding: 0.75rem;
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .project {
+    width: 320px; /* ✅ 데스크탑에서는 320px로 고정 */
+  }
 }
