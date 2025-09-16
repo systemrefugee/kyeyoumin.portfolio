@@ -1,15 +1,17 @@
 [
    {
-    "title": "백년의 고독 (Cien Años de Soldad)",
+    "order": 2,
+    "title": "백년의 고독",
     "year": "2022",
     "tags": ["2022", "illustration"],
     "thumb": "images/100years/thumb.jpg",
-    "descShort": "",
+    "descShort": "Cien Años de Soldad",
     "descEn": "In my <Understanding Spanish Literature> class at my university, I read Gabriel García Márquez's One Hundred Years of Solitude and created an illustrated family tree of the Buendía family. I illustrated the history of the family and the lives of each person over the course of 100 years, combining them with traditional Colombian symbols.",
     "descKo": "’스페인어권 명작의 이해’수업에서 가브리엘 가르시아 마르케스의 <백년의 고독>이라는 책을 읽고 부엔디아 가문의 가계도를 일러스트 형식으로 그려냈다. 100년 동안 가문의 역사와 각 인물의 삶을 도상으로 표현하고, 콜롬비아의 전통 문양을 함께 배치했다.",
     "images": ["images/100years/cads.jpg"]
   },
   {
+    "order": 12,
     "title": "일용할 양식",
     "year": "2024",
     "tags": ["2024", "illustration", "silkscreen"],
@@ -20,16 +22,18 @@
     "images": ["images/our daily bread/odb_digital.jpeg", "images/our daily bread/odb_print.jpg"]
   },
   {
-    "title": "몸 (Body)",
+    "order": 17,
+    "title": "몸",
     "year": "2025",
     "tags": ["2025", "typography", "illustration"],
     "thumb": "images/body/thumb.jpg",
-    "descShort": "",
+    "descShort": "Body",
     "descEn": "By placing body parts—arms and hands, legs and feet, face, and abdomen—into the counter spaces of the letter '몸', I visualized the feeling of the word itself acting as a frame that confines the self. Each body part is pressed and distorted within a larger structure, and the remaining negative space forms the shape of the letter. Do we possess our bodies, or are we bound by them?",
     "descKo": "’몸‘이라는 글자의 속공간에 팔과 손, 다리와 발, 얼굴, 배와 같은 신체 부위를 배치함으로써, ’몸‘이라는 단어 자체가 자아를 가두는 틀처럼 느껴지는 감각을 시각화했다. 각 신체부위는 더 큰 틀 안에서 눌리고 뒤틀려있으며, 그 사이로 남은 네거티브 스페이스가 글자의 형상을 드러낸다. 우리는 몸을 소유하는가, 혹은 몸에 의해 구속되는가?",
     "images": ["images/body/n.png", "images/body/p.png"]
   },
   {
+    "order": 15,
     "title": "Girlhead",
     "year": "2025",
     "tags": ["2025", "comic"],
@@ -53,26 +57,30 @@
       "images/girlhead/cover_2.png"]
   },
   {
+    "order": 3,
     "title": "분신",
     "year": "2022",
     "tags": ["2022", "poster", "editorial", "typography"],
     "thumb": "images/alter ego/thumb.jpg",
-    "descShort": "",
+    "descShort": "Alter Ego",
     "descEn": "These are a poster and a leaflet for a film festival on the theme of alter egos organized by the film club Cinecom. The title of the festival was distorted using a scanner to express the impression of the theme.",
     "descKo": "영화 동아리 씨네꼼에서 진행된 분신 을 주제로 한 영화제의 포스터와 리플렛을 디자인했다. 영화제의 타이틀을 스캐너를 사용해 왜곡하여 주제가 주는 인상을 표현했다.",
     "images": ["images/alter ego/alterego_1.jpg"]
   },
-    {
+  {
+    "order": 9,
     "title": "너말고니수염",
     "year": "2023",
-    "tags": ["2022", "editorial", "illustration"],
+    "tags": ["2023", "editorial", "illustration"],
     "thumb": "images/beard/thumb.jpg",
-    "descShort": "",
+    "descShort": "It's Your Beard, Not You",
     "descEn": "This is a book of beard that contains stories about them. It includes recommendations for beard styles for different face shapes. The cover is a face without a beard, but it can be turn into different bearded faces with various strips of paper.",
     "descKo": "수염과 수염에 얽힌 이야기들을 담은 책을 제작했다. 얼굴형 별 수염 스타일에 대한 추천도 실려있다. 표지는 수염이 없는 얼굴인데, 띠지를 둘러 여러가지 수염으로 바꿔볼 수 있도록 했다.",
     "images": ["images/beard/beard_1.jpg", "images/beard/beard_2.jpg"]
   },
   {
+    "order": 13,
+    "visible": false,
     "title": "(!)Bubbleshitter",
     "year": "2025",
     "tags": ["2025", "editorial"],
@@ -83,6 +91,7 @@
     "images": ["images/bubble shitter/thumb.jpg"]
   },
   {
+    "order": 4,
     "title": "Buttloon",
     "year": "2022",
     "tags": ["2022", "typography", "font"],
@@ -93,6 +102,7 @@
     "images": ["images/Buttloon/1-ezgif.com-speed.gif", "images/Buttloon/Buttloon typeface_64.jpg", "images/Buttloon/Buttloon typeface_67.jpg"]
   },
   {
+    "order": 14,
     "title": "Everyday Screenshot Archive",
     "year": "2025",
     "tags": ["2025", "web"],
@@ -103,16 +113,19 @@
     "images": ["images/everyday/ed.gif","images/everyday/ed.png"]
   },
   {
-    "title": "(!)불시착외계유민 (Extraterrestrial Drifters)",
+    "visible": false,
+    "order": 1,
+    "title": "(!)불시착외계유민",
     "year": "2021",
     "tags": ["2021", "illustration"],
     "thumb": "images/extraterrestrial/thumb.jpg",
-    "descShort": "",
+    "descShort": "Extraterrestrial Drifters",
     "descEn": "Text",
     "descKo": "텍스트",
     "images": ["images/extraterrestrial/image1.png", "images/extraterrestrial/image2.png"]
   },
   {
+    "order": 5,
     "title": "Francophonie",
     "year": "2023",
     "tags": ["2023", "poster", "editorial"],
@@ -123,16 +136,18 @@
     "images": ["images/Francophonie/image42.jpg", "images/Francophonie/image43.png", "images/Francophonie/image44.png", "images/Francophonie/image45.png"]
   },
   {
-    "title": "이 영화는 내게 용기를 줍니다 (MAY courage be with you!)",
+    "order": 7,
+    "title": "이 영화는 내게 용기를 줍니다",
     "year": "2023",
     "tags": ["2023", "poster", "editorial"],
     "thumb": "images/may courage/thumb.jpg",
-    "descShort": "",
+    "descShort": "MAY courage be with you!",
     "descEn": "This project includes a poster and a booklet designed for the Cinecoms Film Festival May Courage Be with You. Given the abstract theme and the diverse visual tones of each film, I created original illustrations rather than relying on existing images, aiming for a cohesive visual identity. Using a calm color palette, I sought to capture the festival’s theme of films that bring energy and renewal to the late spring doldrums.",
     "descKo": "영화 동아리 씨네꼼의 영화제 <이 영화는 내게 용기를 줍니다> 의 포스터와 소책자를 디자인했다. 주제가 추상적이고 각 영화의 시각적 톤이 제각각이었기 때문에 통일된 룩을 만들기 위해 기존 사진을 사용하지 않고 따로 일러스트를 그렸다. 늦봄의 권태로움에 활력을 주는 영화 라는 주제를 차분한 색감으로 표현하고자 했다.",
     "images": ["images/may courage/image34.jpg", "images/may courage/image35.png", "images/may courage/image36.png"]
   },
   {
+    "order": 11,
     "title": "Nothing But The Blood",
     "year": "2024",
     "tags": ["2024", "poster", "typography", "font", "MD"],
@@ -143,13 +158,49 @@
     "images": ["images/nbtb/poster_1.png","images/nbtb/poster_2.png","images/nbtb/-2024-11-18--12.53.57.png","images/nbtb/sticker.png", "images/nbtb/hoodie.png"]
   },
   {
-    "title": "환경대학원 옆 주차장과 74동을 잇는 지름길 (A Shortcut Between The Parking Lot Next To Graduate School of Environment Studies And Building 74)",
+    "order": 8,
+    "title": "환경대학원 옆 주차장과 74동을 잇는 지름길",
     "year": "2023",
     "tags": ["2023", "editorial"],
     "thumb": "images/roadbook/thumb.jpg",
-    "descShort": "",
+    "descShort": "A Shortcut Between The Parking Lot Next To Graduate School of Environment Studies And Building 74",
     "descEn": "This little book is a subjective map of a shortcut I used to walk. It should be turned upside down instead of sideways. I tried to give the feeling of a narrow and stiff staircase when entering this shortcut. To show a tall lamp in the street, I inserted a semi-transparent paper.",
     "descKo": "이 작은 책은 내가 걸어 다니던 지름길을 주관적으로 기록한 지도이다. 옆으로 넘기는 대신 거꾸로 뒤집어 읽어야 한다. 이 지름길에 들어설 때 느껴지는 좁고 뻣뻣한 계단의 느낌을 담고자 했다. 거리의 키 큰 가로등을 보여주기 위해 반투명한 종이를 삽입했다.",
     "images": ["images/roadbook/roadbook.jpg"]
+  },
+  {
+    "order": 16,
+    "title": "협동-Challenge",
+    "year": "2025",
+    "tags": ["2025", "typography"],
+    "thumb": "images/spass workshop/thumb_2.jpg",
+    "descShort": "SPASS workshop in SNU",
+    "descEn": "This work was created during a workshop led by Studio Spass at SNU, under the theme of Collaboration. My chosen keyword was Challenge. Inspired by the patterns of wooden floorboards, I developed the design by observing and reinterpreting their structure.",
+    "descKo": "이 작품은 서울대학교에서 열린 Studio Spass 워크숍에서, 전체 주제 협동 아래 도전이라는 키워드를 선택해 만든 작업이다. 바닥 마루의 형태를 관찰하고 재해석하여 디자인으로 발전시켰다.",
+    "images": ["images/spass workshop/sp_img_small.jpg","images/spass workshop/sp_d.JPG"]
+  },
+  {
+    "order": 6,
+    "title": "To the Wider World",
+    "year": "2023",
+    "tags": ["2023", "animation"],
+    "thumb": "images/ttww/thumb.jpg",
+    "descShort": "",
+    "descEn": "This animation tells the story of a fish struggling to break out of the mould of the world and reach a larger world. A fish tries to escape from a plastic bag, but is unable to break through the transparent wall in front of it, and escapes through a chance encounter. Dreaming of flying, the fish faces the ocean and learns to fly in it. The video was exhibited alongside the ceramic works of the collaborating artist.",
+    "descKo": "이 애니메이션은 세상의 틀을 깨고 더 큰 세계로 나아가려는 한 물고기의 이야기를 담고 있다. 물고기는 비닐봉지에서 빠져나오려 하지만 눈앞의 투명한 벽을 뚫지 못하고, 우연한 계기를 통해 탈출하게 된다. 날기를 꿈꾸던 물고기는 바다와 마주하며 그 안에서 나는 법을 배운다. 이 영상은 협업 작가의 도자기 작품과 함께 전시되었다.",
+    "images": ["images/ttww/image15.png", "images/ttww/comp230131_1-ezgif.com-speed.gif", "images/ttww/image17.png", "images/ttww/image18.JPG"],
+    "vimeoEmbedUrl": ["https://player.vimeo.com/video/1006326565?h=b29e94d479"]
+  },
+  {
+    "order": 10,
+    "title": "영화 속 뱀파이어",
+    "year": "2023",
+    "tags": ["2023", "poster"],
+    "thumb": "images/vampire/thumb.jpg",
+    "descShort": "Vampires In the Movies",
+    "descEn": "This poster was designed for the Cinecom Film Club’s Vampires in the Movies festival. Featuring a scene from Only Lovers Left Alive, one of the screenings, the poster evokes a cool, gothic atmosphere.",
+    "descKo": "이 포스터는 Cinecom 영화 동아리의 <영화 속 뱀파이어> 영화제를 위해 제작되었다. 상영작 중 하나인 Only Lovers Left Alive의 한 장면을 메인 이미지로 사용해 서늘하고 고딕적인 분위기를 담아냈다.",
+    "images": ["images/vampire/image37.jpg"]
   }
+  
 ]

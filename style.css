@@ -3,13 +3,27 @@
 /* 기본 */
 * { box-sizing: border-box }
 html, body { height: 100% }
-body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #cc3939 }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #cc3939; background-color:#f2f2f2; }
 
 /* 스크롤바 하나만 보이게: archive만 스크롤 */
 html, body { overflow: hidden }
-.layout { display: grid; grid-template-columns: 320px 1fr; height: 100vh; overflow: hidden }
-#about { position: sticky; top: 0; height: 100vh; padding: 2rem; background: #fff; overflow: auto;  }
-#archive { height: 100vh; overflow-y: auto; padding: 2rem; }
+.layout { 
+  display: grid; 
+  grid-template-columns: 320px 1fr; 
+  height: 100vh;
+  overflow: hidden;
+  padding: 2rem 4rem; /* 위아래는 0, 좌우는 4rem의 여백을 줌 */
+  box-sizing: border-box; /* 패딩이 너비 계산에 포함되도록 함 */
+  }
+#about { position: sticky; top: 0; height: 100vh; padding: 2rem; background: transparent; overflow: auto;  }
+#archive { height: 100vh; overflow-y: auto; padding: 2rem 2rem 8rem; }
+
+@media (max-width: 768px) {
+  #archive {
+    margin-bottom: -12rem;
+    padding-bottom: -8rem;
+  }
+}
 
 /* 필터 버튼 */
 #filter-buttons {
@@ -26,21 +40,19 @@ html, body { overflow: hidden }
 }
 #filter-buttons button {
   margin: 0 .5rem .5rem 0; padding: .4rem 1rem;
-  border: 1px solid #cc393980; background: #fff; cursor: pointer; border-radius: 999px
+  border: 1px solid #cc393980; background: transparent; cursor: pointer; border-radius: 999px
 }
 
 
 /* 그리드: 반응형 + ‘결과 1개여도’ PC에선 3열 고정 */
-.project-grid { display: grid; gap: 2rem }
-@media (min-width: 1024px) { .project-grid { grid-template-columns: repeat(3, 1fr) } }
-@media (min-width: 768px) and (max-width: 1023px) { .project-grid { grid-template-columns: repeat(2, 1fr) } }
-@media (max-width: 767px) { .project-grid { grid-template-columns: 1fr } }
+.project-grid { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  justify-items: start; }
 
-.project { background: #fff; border: 1px solid #fff; border-radius: 12px; padding: 1rem }
+
+.project { width: 340px; background: transparent; border: none; border-radius: 12px; padding: 1.5rem }
 .project.hidden { display: none }
 
 /* 썸네일 비율 고정: 패딩 방식 (1:1) */
-.thumbnail-box { position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 8px; background: #fff }
+.thumbnail-box { position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 8px; background: transparent }
 .thumbnail-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block }
 
 .project h3 { margin: .8rem 0 .4rem; font-size: 1.2rem }
@@ -48,7 +60,7 @@ html, body { overflow: hidden }
 
 /* 카드 내부 태그 버튼 */
 .tag-list { margin-top: .5rem }
-.tag { display: inline-block; margin: 0 .5rem .5rem 0; padding: .25rem .6rem; background: #fff; border: 1px solid #cc393980; border-radius: 999px; font-size: .75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;  font-family: "Nata Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+.tag { display: inline-block; margin: 0 .5rem .5rem 0; padding: .25rem .6rem; background: transparent; border: 1px solid #cc393980; border-radius: 999px; font-size: .75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;  font-family: "Nata Sans", system-ui, -apple-system, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;}
 .tag:hover { background: #cc3939; color: #fff !important }
 
@@ -84,11 +96,11 @@ html, body { overflow: hidden }
 }
 .modal-close { 
   position: absolute; 
-  top: 15px; 
+  top: 10px; 
   right: 15px;
   border: none;
   background: transparent;
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   line-height: 1;
   cursor: pointer;
   z-index: 3; 
@@ -125,11 +137,24 @@ html, body { overflow: hidden }
   border-radius: 8px;
   display: block;
 }
-
+.modal-subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #a8d1e9; /* 제목보다 약간 옅은 색 */
+  margin-top: -1.2rem; /* 제목과 본문 사이의 여백 조절 */
+  padding-right: 40px; /* 닫기 버튼과 겹치지 않도록 여백 유지 */
+  line-height: 1.5;
+}
 /* 작은 화면에서는 1열로 */
 @media (max-width: 800px){
   .modal-images.grid-2{
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-subtitle {
+    margin-top: -0.3rem;
   }
 }
 
@@ -145,7 +170,7 @@ body.modal-open { overflow: hidden }
   position: fixed; top: 50%; transform: translateY(-50%);
   z-index: 10001; display: none;
   border: none; background: none; color: #cc3939;
-  font-size: 1rem; line-height: 1; padding: .6rem 1rem;
+  font-size: 2rem; line-height: 1; padding: .6rem 1rem;
   cursor: pointer; border-radius: 12px; 
 }
 .nav-prev { left: 12px }
@@ -158,6 +183,10 @@ body.modal-open .nav-fixed { display: inline-flex }
   .layout { display: block; height: auto }
   html, body { overflow: auto }
   #about, #archive { height: auto }
+    #about {
+    padding-top: 1.25rem;
+    text-align: center; 
+  }
   .nav-fixed { font-size: 2rem; padding: .8rem 1.1rem }
   .nav-prev { left: 6px } .nav-next { right: 6px }
 }
@@ -165,19 +194,23 @@ body.modal-open .nav-fixed { display: inline-flex }
 .sort-controls {
   display: flex;
   align-items: center;
-  gap: .5rem;
+  gap: .7rem;
   margin-left: auto;
 }
 .sort-controls label {
   font-size: .9rem;
   color: #a8d1e9;
+  font-family: "Nata Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  text-align: center;
 }
 .sort-controls select {
   padding: .35rem .6rem;
   border: 1px solid #a8d1e9;
   border-radius: 16px;
-  background: #fff;
+  background: transparent;
   cursor: pointer;
+  text-align: center;
 }
 
 /* ── 캐러셀(버튼 전용, 스크롤/바 없음) ───────────────── */
@@ -352,6 +385,7 @@ p, li, .desc-col{ font-weight: 400; }
     margin: 0;
     border-radius: 0;
     padding: 1rem;
+    padding-top: 2rem;
     padding-bottom: 72px; /* 하단 프로젝트 네비 버튼 자리 확보 */
     overflow: auto;       /* ✅ 모달 안 스크롤 */
     -webkit-overflow-scrolling: touch;
@@ -369,13 +403,13 @@ p, li, .desc-col{ font-weight: 400; }
     border: 0px solid #eaeaea;
     border-radius: 50px;
     z-index: 10001;
-    width: 56px; height: 56px;
+    width: 59px; height: 59px;
 
     display: none;              /* ← 기본 숨김 */
   }
   .nav-fixed .arrow-icon {
-  width: 1.6em;
-  height: 1.6em;
+  width: 1.8em;
+  height: 1.8em;
   }
   .nav-fixed:hover,
   .nav-fixed:active {
@@ -485,13 +519,18 @@ p, li, .desc-col{ font-weight: 400; }
 .sort-controls select,
 .modal-close {
   color: #cc3939 !important;
+  font-family: "Nata Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
+  text-transform: uppercase; /* ✅ all caps 적용 */
+  letter-spacing: 0.05em;  
 }
 
 /* iOS에서 select 색/모양 통일 */
 .sort-controls select {
   appearance: none;
   -webkit-appearance: none;
-  background-color: #fff;
+  background-color: transparent;
   border: 1px solid #cc393980;
 }
 @media (max-width: 600px) {
@@ -505,6 +544,7 @@ p, li, .desc-col{ font-weight: 400; }
     margin: 0;
     border-radius: 0;
     padding: 1rem;
+    padding-top: 50px;
     padding-bottom: 72px;   /* 하단 네비 영역 확보 */
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -595,7 +635,7 @@ body:not(.disable-transition) .about-name-svg {
 #about-toggle[aria-expanded="true"] .about-name-svg {
   transform: rotate(180deg);
 }
-/* style.css */
+
 
 /* --- 새로운 푸터 스타일 (기존 푸터 CSS는 지우고 이걸로 대체) --- */
 
@@ -607,10 +647,15 @@ body:not(.disable-transition) .about-name-svg {
 }
 
 .contact-info a {
-  margin: 0 0.75rem;
   color: #cc3939;
   text-decoration: none;
   font-weight: 500;
+  
+}
+.contact-info {
+  display: flex; /* 링크들을 가로로 나란히 배치하는 Flexbox로 만듦 */
+  justify-content: center;
+  gap: 1rem;   /* 링크들 '사이'에만 1rem의 간격을 줌 */
 }
 
 .contact-info a:hover {
@@ -623,25 +668,28 @@ body:not(.disable-transition) .about-name-svg {
   margin-top: 1rem;
 }
 
-
 /* 데스크탑 화면 (가로 769px 이상) */
-@media (min-width: 769px) {
+@media (min-width: 760px) {
   .about-footer {
     /* 화면 왼쪽 하단에 고정 */
     position: fixed;
-    bottom: 0;
-    left: 0;
+    bottom: 1em;
+    left: 4em;
     
     /* aside 컬럼과 똑같은 너비와 배경색 지정 */
     width: 320px; 
-    background-color: #fff;
+    background-color: transparent;
 
     /* 정렬 및 여백 재설정 */
     text-align: left;
     margin-top: 0;
     padding: 2rem;
   }
+  .contact-info {
+    justify-content: flex-start; /* 링크들을 왼쪽으로 붙임 */
+  }
 }
+
 
 /* style.css */
 
@@ -657,6 +705,7 @@ body:not(.disable-transition) .about-name-svg {
     width: 1.2em;
     height: 1.2em;
   }
+
 }
 
 /* 드래그 시 텍스트 선택 영역 스타일 */
@@ -673,4 +722,23 @@ body:not(.disable-transition) .about-name-svg {
 
 #modal-title {
   padding-right: 40px;
+}
+/* 반응형 비디오 컨테이너 */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border-radius: 8px; 
+  overflow: hidden;  
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
