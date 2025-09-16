@@ -1,0 +1,676 @@
+
+
+/* 기본 */
+* { box-sizing: border-box }
+html, body { height: 100% }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: #cc3939 }
+
+/* 스크롤바 하나만 보이게: archive만 스크롤 */
+html, body { overflow: hidden }
+.layout { display: grid; grid-template-columns: 320px 1fr; height: 100vh; overflow: hidden }
+#about { position: sticky; top: 0; height: 100vh; padding: 2rem; background: #fff; overflow: auto;  }
+#archive { height: 100vh; overflow-y: auto; padding: 2rem; }
+
+/* 필터 버튼 */
+#filter-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 좌우 배치 */
+  flex-wrap: wrap; /* 화면 작아지면 다음 줄로 */
+  margin: 0 0 1rem 0;
+}
+#filter-buttons .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+#filter-buttons button {
+  margin: 0 .5rem .5rem 0; padding: .4rem 1rem;
+  border: 1px solid #cc393980; background: #fff; cursor: pointer; border-radius: 999px
+}
+
+
+/* 그리드: 반응형 + ‘결과 1개여도’ PC에선 3열 고정 */
+.project-grid { display: grid; gap: 2rem }
+@media (min-width: 1024px) { .project-grid { grid-template-columns: repeat(3, 1fr) } }
+@media (min-width: 768px) and (max-width: 1023px) { .project-grid { grid-template-columns: repeat(2, 1fr) } }
+@media (max-width: 767px) { .project-grid { grid-template-columns: 1fr } }
+
+.project { background: #fff; border: 1px solid #fff; border-radius: 12px; padding: 1rem }
+.project.hidden { display: none }
+
+/* 썸네일 비율 고정: 패딩 방식 (1:1) */
+.thumbnail-box { position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 8px; background: #fff }
+.thumbnail-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block }
+
+.project h3 { margin: .8rem 0 .4rem; font-size: 1.2rem }
+.project p { margin: 0 0 .6rem 0; color: #cc3939; font-size: .85rem }
+
+/* 카드 내부 태그 버튼 */
+.tag-list { margin-top: .5rem }
+.tag { display: inline-block; margin: 0 .5rem .5rem 0; padding: .25rem .6rem; background: #fff; border: 1px solid #cc393980; border-radius: 999px; font-size: .75rem; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em;  font-family: "Nata Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;}
+.tag:hover { background: #cc3939; color: #fff !important }
+
+/* 모달 */
+.modal.hidden { display: none }
+.modal { position: fixed; inset: 0; z-index: 9999 }
+.modal-overlay { position: fixed; inset: 0; background: #0d0d0d1a }
+.modal-dialog{
+  position: relative;
+  max-width: min(1000px, 92vw);
+  max-height: 90vh;
+  margin: 5vh auto;
+  background: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  overflow: auto;              /* 내부 스크롤 없애기 */
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* 제목/설명/이미지 */
+  row-gap: 1rem;
+}
+/* 2열 설명 */
+.modal-desc-2col{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  align-items: start;
+}
+.modal-desc-2col .desc-col{
+  font-size: .85rem;
+  line-height: 1.6;
+  color: #cc3939;
+  white-space: pre-wrap;
+}
+.modal-close { 
+  position: absolute; 
+  top: 15px; 
+  right: 15px;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3; 
+}
+.modal-images{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-content: start;
+  max-height: none; overflow: visible;
+}
+.modal-images img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  /* 각 이미지도 세로 최대치 제한 → 내부 스크롤 방지 기여 */
+  max-height: none;
+  object-fit: contain;
+}
+/* 6장 이하: 2열 그리드 모드 */
+.modal-images.grid-2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* ✅ 2열 고정 */
+  gap: 1rem;
+  max-height: none;                        /* ✅ 높이 제한 해제 → 길면 모달이 스크롤 */
+  align-content: start;
+}
+.modal-images.grid-2 img{
+  width: 100%;
+  height: auto;
+  max-height: none;                        /* ✅ 이미지 개별 제한 해제 */
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+/* 작은 화면에서는 1열로 */
+@media (max-width: 800px){
+  .modal-images.grid-2{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 작은 화면에선 설명 1열로 */
+@media (max-width: 800px){
+  .modal-desc-2col{ grid-template-columns: 1fr; }
+}
+/* 모달 열리면 바디 스크롤 잠금 */
+body.modal-open { overflow: hidden }
+
+/* 고정 네비 버튼 (모달 바깥, 화면 좌/우 고정) */
+.nav-fixed {
+  position: fixed; top: 50%; transform: translateY(-50%);
+  z-index: 10001; display: none;
+  border: none; background: none; color: #cc3939;
+  font-size: 1rem; line-height: 1; padding: .6rem 1rem;
+  cursor: pointer; border-radius: 12px; 
+}
+.nav-prev { left: 12px }
+.nav-next { right: 12px }
+.nav-fixed:hover { color: #a8d1e9 }
+body.modal-open .nav-fixed { display: inline-flex }
+
+/* 모바일 대응 */
+@media (max-width: 768px) {
+  .layout { display: block; height: auto }
+  html, body { overflow: auto }
+  #about, #archive { height: auto }
+  .nav-fixed { font-size: 2rem; padding: .8rem 1.1rem }
+  .nav-prev { left: 6px } .nav-next { right: 6px }
+}
+/* 정렬 영역은 오른쪽 정렬 */
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-left: auto;
+}
+.sort-controls label {
+  font-size: .9rem;
+  color: #a8d1e9;
+}
+.sort-controls select {
+  padding: .35rem .6rem;
+  border: 1px solid #a8d1e9;
+  border-radius: 16px;
+  background: #fff;
+  cursor: pointer;
+}
+
+/* ── 캐러셀(버튼 전용, 스크롤/바 없음) ───────────────── */
+.carousel { position: relative; margin-top: 1rem; }
+
+.carousel-viewport {
+  overflow: hidden;            /* ❗ 내부 스크롤 제거 */
+  width: 100%;
+  border-radius: 8px;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;                 /* JS에서 translateX로 이동 */
+  transform: translateX(0);
+  will-change: transform;
+  
+}
+
+.carousel-slide {
+  flex: 0 0 100%;              /* 항상 한 화면 = 1장 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide img {
+  max-height: 70vh;
+  width: auto;
+  height: fit-content;
+  object-fit: contain;
+  display: block;
+}
+
+/* 좌/우 버튼 */
+.carousel-prev, .carousel-next {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  border: none; background: none;
+  color: #cc3939; font-size: 2rem; line-height: 1;
+  padding: .4rem .8rem; cursor: pointer; border-radius: 10px; z-index: 2;
+}
+.carousel-prev { left: 8px; }
+.carousel-next { right: 8px; }
+.carousel-prev:hover, .carousel-next:hover { color: #a8d1e9; }
+
+
+/* 기존 그리드(≤6장일 때)도 모달 길이 넘지 않도록 */
+.modal-images{
+  max-height: clamp(30vh, 50vh, 60vh);
+  overflow: auto;
+}
+.modal-images img{ max-height: 40vh; object-fit: contain; }
+
+/* 모달: 내용이 길면 모달 안에서 세로 스크롤 허용 */
+.modal-dialog{
+  max-height: 90vh;
+  overflow: auto;              /* ✅ 모달 내부 스크롤 허용 */
+}
+
+/* 6장 이하: 2열 그리드 모드 */
+.modal-images.grid-2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* ✅ 2열 고정 */
+  gap: 1rem;
+  max-height: none;                        /* ✅ 높이 제한 해제 → 길면 모달이 스크롤 */
+  align-content: start;
+}
+.modal-images.grid-2 img{
+  width: 100%;
+  height: auto;
+  max-height: none;                        /* ✅ 이미지 개별 제한 해제 */
+  object-fit: contain;
+  border-radius: 8px;
+  display: block;
+}
+
+/* 작은 화면에서는 1열로 */
+@media (max-width: 800px){
+  .modal-images.grid-2{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* (참고) 캐러셀 모드는 이전 CSS 그대로 유지 */
+
+:root{
+  /* 폰트 토큰 */
+  --font-latin: "Nata Sans", sans-serif;
+  --font-korean: "SUIT", sans-serif;
+
+  /* 타이포 기본값 */
+  --leading: 1.65;         /* 기본 줄간격 */
+  --leading-tight: 1.35;   /* 제목 등 타이트하게 */
+}
+
+html { font-size: 14px; }
+
+/* 기본: 라틴 우선 → 한글은 Pretendard로 자동 폴백 */
+body{
+  font-family: var(--font-latin), var(--font-korean);
+  line-height: var(--leading);
+  color: #cc3939;
+}
+
+/* 명시적으로 한국어에 Pretendard 강제 (권장) */
+:lang(ko), .ko{
+  font-family: var(--font-korean), var(--font-latin);
+}
+
+/* 제목은 살짝 타이트 */
+h1, h2, h3{ line-height: var(--leading-tight); margin: 0 0 .5em; }
+
+/* 본문/설명 */
+p, .desc-col{ line-height: var(--leading); }
+
+/* 버튼/태그 가독성 */
+#filter-buttons button, .tag{ line-height: 1.2; }
+
+h1{ font-weight: 700; }
+h2{ font-weight: 600; }
+h3{ font-weight: 550; }   /* 중간 굵기도 가능 */
+p, li, .desc-col{ font-weight: 400; }
+
+.small{ font-size: .9rem; }
+.note { color: #cc3939; line-height: 1.5; }
+
+.modal-desc-2col .en{ letter-spacing:.01em; }
+.modal-desc-2col .ko{ letter-spacing:0; }
+
+/* 상단 필터 버튼 라벨은 무조건 Nata Sans */
+#filter-buttons button {
+  font-family: "Nata Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500; /* 필요에 따라 굵기 조절 */
+  text-transform: uppercase; /* ✅ all caps 적용 */
+  letter-spacing: 0.05em;       /* ✅ 자간 5% 늘림 */
+}
+
+@media (max-width: 600px) {
+  .modal-dialog{
+    width: 100vw;
+    max-width: 100vw;
+    height: 100svh;      /* iOS 안전 높이 */
+    max-height: 100svh;
+    margin: 0;           /* 가장자리까지 꽉 차게 */
+    border-radius: 0;    /* 라운드 제거(선택) */
+    padding: 1rem;
+    overflow: auto;
+  }
+  .carousel-viewport{ width: 100%; }
+  .carousel-slide img{
+    max-width: 100%;
+    max-height: 70vh;    /* 상단 타이틀/설명 고려 */
+    object-fit: contain;
+  }
+  .nav-prev { left: 8px; }
+  .nav-next { right: 8px; }
+}
+
+/* ========== Mobile-only tweaks ========== */
+@media (max-width: 600px) {
+  /* 모달을 모바일 풀스크린로, 내부 스크롤 가능 */
+  .modal {
+  overscroll-behavior: contain;
+}
+  .modal-dialog{
+    width: 100vw;
+    max-width: 100vw;
+    height: 100svh;
+    max-height: 100svh;
+    margin: 0;
+    border-radius: 0;
+    padding: 1rem;
+    padding-bottom: 72px; /* 하단 프로젝트 네비 버튼 자리 확보 */
+    overflow: auto;       /* ✅ 모달 안 스크롤 */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 프로젝트 간 고정 네비 버튼: 하단 좌/우에 흰 박스 */
+    /* 🔧 기본은 숨김 */
+  .nav-fixed{
+    position: fixed;
+    bottom: 8px;
+    top: auto;
+    transform: none;
+    background: none;
+    color: #cc3939;
+    border: 0px solid #eaeaea;
+    border-radius: 50px;
+    z-index: 10001;
+    width: 56px; height: 56px;
+
+    display: none;              /* ← 기본 숨김 */
+  }
+  .nav-fixed .arrow-icon {
+  width: 1.6em;
+  height: 1.6em;
+  }
+  .nav-fixed:hover,
+  .nav-fixed:active {
+  color: #cc3939; /* 글자/아이콘 색상 고정 */
+  background: none; /* 배경색 고정 */
+  }
+
+  .nav-prev{ left: 8px; }
+  .nav-next{ right: 8px; }
+
+  /* ✅ 모달 열릴 때만 표시 */
+  body.modal-open .nav-fixed {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body.modal-open{
+    overflow: hidden;
+    position: fixed;   /* ← 중요 */
+    width: 100%;
+  }
+  /* 캐러셀 화살표 숨김/탭존 등은 그대로 */
+  .carousel-prev, .carousel-next{ display: none !important; }
+  .tap-zone{
+    display: block;            /* ✅ 모바일에서만 보이게 */
+    pointer-events: auto;      /* ✅ 터치 활성화 */
+    position: absolute; top:0; bottom:0; width:50%;
+    background: transparent; z-index: 2;
+    touch-action: pan-y;       /* 세로 스크롤은 통과 */
+  }
+  .tap-left{ left:0; } .tap-right{ right:0; }
+  .carousel-viewport{
+  touch-action: pan-y;   /* ← 캐러셀 영역에서도 세로 스크롤 허용 */
+}
+/* 6장 초과 캐러셀: 화살표 버튼 숨기기 (모바일에만) */
+  .carousel-prev, .carousel-next{ display: none !important; }
+}
+
+  
+
+  /* 6장 초과 캐러셀: 탭 존(왼/오른쪽 절반) */
+  .tap-zone{
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 50%;
+    z-index: 2;
+    /* 시각적으로 보이지 않게(투명 클릭영역) */
+    background: transparent;
+    /* 접근성향상: 포커스 표시 원하면 아래 주석 해제
+    outline: none;
+    */
+  }
+  .tap-left{ left: 0; }
+  .tap-right{ right: 0; }
+
+  /* 캐러셀 이미지가 화면에 맞게 */
+  .carousel-viewport{ width: 100%; }
+  .carousel-slide img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: scale-down;
+  }
+
+/* 탭존은 기본적으로 비활성 (데스크톱에서 클릭 가로채지 않게) */
+/*.tap-zone { display: none; pointer-events: none; }*/
+
+/* ===== Desktop (>= 601px): 모달이 콘텐츠(캐러셀) 높이에 따라 커짐 ===== */
+@media (min-width: 601px) {
+  /* 모달 전체는 필요 시 스크롤 가능 */
+  .modal {
+    display: flex;
+    align-items: flex-start;     /* 위쪽 정렬 (원하면 center로 바꿔도 됨) */
+    justify-content: center;
+    overflow: auto;              /* ✅ 모달 바깥 레이어에서 스크롤 */
+    padding: 5vh 2vw;            /* 화면 가장자리 여백 */
+  }
+
+  /* 모달 박스는 고정 높이/내부 스크롤 해제 → 내용에 맞게 커짐 */
+  .modal-dialog {
+    max-height: none;            /* ✅ 고정/최대 높이 해제 */
+    height: auto;                /* ✅ 내용에 따라 증가 */
+    margin: 0;                   /* 위 .modal의 padding이 여백 역할 */
+    overflow: visible;           /* ✅ 내부 스크롤 제거 (잘림 방지) */
+    padding: 5vh 4vw;
+  }
+
+  /* 캐러셀 이미지가 화면 넘지 않도록만 제한 (잘림 방지) */
+  .carousel-viewport { overflow: hidden; width: 100%; }
+  .carousel-slide img {
+    max-height: 80%;            /* ✅ 이미지가 화면안에 머무르게 */
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    overflow: hidden;
+  }
+
+  /* (6장 이하) 그리드 모드도 모달 높이에 맞춰 확장됨 */
+  .modal-images.grid-2 {
+    max-height: none;            /* 이전 제한 해제 */
+    overflow: visible;
+  }
+}
+/* 필터 버튼/태그/정렬/닫기 모두 검정 */
+#filter-buttons button,
+.tag,
+.sort-controls label,
+.sort-controls select,
+.modal-close {
+  color: #cc3939 !important;
+}
+
+/* iOS에서 select 색/모양 통일 */
+.sort-controls select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid #cc393980;
+}
+@media (max-width: 600px) {
+  /* 모달은 풀스크린 + 내부 스크롤(제목/텍스트/이미지 통째로 스크롤) */
+  .modal-dialog{
+    display: block;        /* ✅ 그리드 끄기 → 자연스러운 순서로 쌓임 */
+    width: 100vw;
+    max-width: 100vw;
+    height: 100svh;
+    max-height: 100svh;
+    margin: 0;
+    border-radius: 0;
+    padding: 1rem;
+    padding-bottom: 72px;   /* 하단 네비 영역 확보 */
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* 캐러셀이 텍스트 바로 아래에 붙도록 여백 최소화 */
+  .modal-images .carousel { margin-top: 0; } /* 필요시 0으로 */
+
+  /* 캐러셀 뷰포트/이미지: 가로 스크롤 제거 + 세로는 모달이 담당 */
+  .carousel-viewport{
+    overflow-x: hidden;
+    overflow-y: visible;
+    width: 100%;
+    touch-action: pan-y;
+  }
+  .carousel-slide img{
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* 탭존은 터치로 이전/다음, 세로 스크롤은 통과 */
+  .tap-zone{ 
+    display:block; pointer-events:auto; touch-action: pan-y; 
+  }
+}
+
+
+/* 상단 필터 버튼 기본/활성 */
+#filter-buttons button { color: #a8d1e9; }
+#filter-buttons button.active {
+  background: #cc3939;
+  color:#fff !important;
+}
+
+/* 카드 안 태그도 혹시 active 쓸 때 대비 */
+.tag.active {
+  background:#a8d1e9;
+  color:#f2f2f2 !important;
+}
+/* 토글 버튼 기본 스타일을 텍스트처럼 보이게 */
+#about #about-toggle{
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  color: #a8d1e9;
+}
+
+
+/* 접히는 상자: 트랜지션(높이/투명도), 스크롤 없앰 */
+#about #about-content{
+  transition: max-height 220ms ease, opacity 180ms ease;
+  overflow: hidden;
+}
+
+/* 모바일에서만 '처음엔 닫힘' + 열릴 때만 높이 부여 */
+@media (min-width: 1px) {
+  #about { padding-top: 1.25rem; } /* 손가락 여유 */
+  #about #about-content{
+    max-height: 0;
+    opacity: 0;
+  }
+  #about #about-content.open{
+    /* 충분한 열림 높이(내용에 맞춰 늘어나게 여유치) */
+    max-height: 60vh;
+    opacity: 1;
+  }
+}
+
+
+
+.about-name-svg {
+  width: 80px;
+  height: auto;
+  color: #a8d1e9;
+}
+
+body:not(.disable-transition) .about-name-svg {
+  transition: transform 300ms ease-in-out;
+}
+
+#about-toggle[aria-expanded="true"] .about-name-svg {
+  transform: rotate(180deg);
+}
+/* style.css */
+
+/* --- 새로운 푸터 스타일 (기존 푸터 CSS는 지우고 이걸로 대체) --- */
+
+/* 모바일 + 공통 스타일 */
+.about-footer {
+  padding: 2rem;
+  text-align: center; /* 텍스트를 가운데 정렬 */
+  margin-top: 3rem; /* 위 콘텐츠(프로젝트 그리드)와의 간격 */
+}
+
+.contact-info a {
+  margin: 0 0.75rem;
+  color: #cc3939;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: #cc393980;
+  margin-top: 1rem;
+}
+
+
+/* 데스크탑 화면 (가로 769px 이상) */
+@media (min-width: 769px) {
+  .about-footer {
+    /* 화면 왼쪽 하단에 고정 */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    
+    /* aside 컬럼과 똑같은 너비와 배경색 지정 */
+    width: 320px; 
+    background-color: #fff;
+
+    /* 정렬 및 여백 재설정 */
+    text-align: left;
+    margin-top: 0;
+    padding: 2rem;
+  }
+}
+
+/* style.css */
+
+/* --- SVG 화살표 아이콘 스타일 --- */
+.arrow-icon {
+  width: 1.5em; /* 글자 크기에 비례해서 크기 조절 */
+  height: 1.5em;
+}
+
+/* 모바일에서는 아이콘 크기를 더 키움 */
+@media (max-width: 768px) {
+  .arrow-icon {
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+/* 드래그 시 텍스트 선택 영역 스타일 */
+::selection {
+  background-color: #cc3939; /* 하이라이트 배경색 */
+  color: #a8d1e9;             /* 선택된 텍스트의 글자색 */
+}
+
+/* Firefox 구버전 호환을 위한 코드 */
+::-moz-selection {
+  background-color: #cc3939;
+  color: #a8d1e9;
+}
+
+#modal-title {
+  padding-right: 40px;
+}

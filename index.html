@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kyeyoumin</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="images/favicon_io/favicon.svg">
+  <link rel="apple-touch-icon" href="images/favicon_io/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Nata Sans (Google Fonts, variable 100..900) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nata+Sans:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- SUIT (CDN) -->
+    <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
+
+    <style>
+     body {font-family: 'SUIT', sans-serif;}
+    </style>
+
+</head>
+<body>
+  <div class="layout">
+    <aside id="about">
+        <button id="about-toggle" aria-expanded="false" aria-controls="about-content">
+          <img src="images/icon/logo_g.svg" alt="Youmin Kye" class="about-name-svg" />
+        </button>
+      <div id="about-content">
+      <p>
+        Youmin Kye is a Christian graphic designer based in Seoul, currently studying Visual Communication Design at Seoul National University. She loves making odd, funny, or simply unexplainable things. She buys more books than she can read, and plays bubble shooter more than she should (since 2022).
+      </p>
+      <p lang="ko">
+        서울을 기반으로 활동하는 크리스천 그래픽 디자이너. 현재 서울대학교에서 시각디자인을 공부하고 있습니다. 귀엽고 이상한 것들을 좋아하고 가끔 만들기도 해요. 책을 사모으는 속도가 읽는 속도보다 빠릅니다. 2022년부터 버블슈터 게임에 중독되어 있습니다.
+      </p>
+      </div>
+
+    </aside>
+
+    <main id="archive">
+      <div id="filter-buttons" class="filters"></div>
+      <div class="project-grid" id="project-grid"></div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="project-modal" class="modal hidden">
+  <div class="modal-overlay"></div>
+  <div class="modal-dialog">
+    <button class="modal-close" aria-label="Close">×</button>
+    <h2 id="modal-title"></h2>
+    <p id="modal-desc"></p>
+    <div id="modal-images" class="modal-images"></div>
+  </div>
+</div>
+<button class="nav-fixed nav-prev" aria-label="Previous">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="arrow-icon">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+  </svg>
+</button>
+<button class="nav-fixed nav-next" aria-label="Next">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="arrow-icon">
+    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"></path>
+  </svg>
+</button>
+
+
+  <script src="script.js"></script>
+    <footer class="about-footer">
+    <div class="contact-info">
+      <a href="mailto:hessed2002@gmail.com">Email</a>
+      <a href="https://instagram.com/kyeyoumin_works" target="_blank">Instagram</a>
+    </div>
+    <p class="copyright">
+      &copy; 2025 Youmin Kye. All Rights Reserved.
+    </p>
+  </footer>
+</body>
+</html>

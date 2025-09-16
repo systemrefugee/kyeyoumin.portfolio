@@ -1,0 +1,155 @@
+[
+   {
+    "title": "백년의 고독 (Cien Años de Soldad)",
+    "year": "2022",
+    "tags": ["2022", "illustration"],
+    "thumb": "images/100years/thumb.jpg",
+    "descShort": "",
+    "descEn": "In my <Understanding Spanish Literature> class at my university, I read Gabriel García Márquez's One Hundred Years of Solitude and created an illustrated family tree of the Buendía family. I illustrated the history of the family and the lives of each person over the course of 100 years, combining them with traditional Colombian symbols.",
+    "descKo": "’스페인어권 명작의 이해’수업에서 가브리엘 가르시아 마르케스의 <백년의 고독>이라는 책을 읽고 부엔디아 가문의 가계도를 일러스트 형식으로 그려냈다. 100년 동안 가문의 역사와 각 인물의 삶을 도상으로 표현하고, 콜롬비아의 전통 문양을 함께 배치했다.",
+    "images": ["images/100years/cads.jpg"]
+  },
+  {
+    "title": "일용할 양식",
+    "year": "2024",
+    "tags": ["2024", "illustration", "silkscreen"],
+    "thumb": "images/our daily bread/thumb.jpg",
+    "descShort": "Our Daily Bread",
+    "descEn": "The image of myself filling my stomach with short-form content instead of a full meal is a self-deprecatory, yet not heavy-handed, interpretation. I tried to convey meaning by placing oddly disjointed everyday objects on top of a bright color scheme and clean layout. I placed tired expressions on the plates so that the narrative implied by the drawings would not be lost.",
+    "descKo": "제대로 된 식사 한 끼 대신 숏폼 컨텐츠로 배를 채우는 내 모습을 자조적이면서도 무겁지 않게 풀어냈다. 밝은 색감과 단정한 레이아웃 위에 묘하게 어긋난 일상의 사물들을 배치하여 의미를 전달하고자 했다. 접시 위에 피곤한 표정들을 넣어 그림이 암시하는 내러티브를 놓지 않으려 했다. 디지털 드로잉을 바탕으로 실크스크린을 인쇄했다.",
+    "images": ["images/our daily bread/odb_digital.jpeg", "images/our daily bread/odb_print.jpg"]
+  },
+  {
+    "title": "몸 (Body)",
+    "year": "2025",
+    "tags": ["2025", "typography", "illustration"],
+    "thumb": "images/body/thumb.jpg",
+    "descShort": "",
+    "descEn": "By placing body parts—arms and hands, legs and feet, face, and abdomen—into the counter spaces of the letter '몸', I visualized the feeling of the word itself acting as a frame that confines the self. Each body part is pressed and distorted within a larger structure, and the remaining negative space forms the shape of the letter. Do we possess our bodies, or are we bound by them?",
+    "descKo": "’몸‘이라는 글자의 속공간에 팔과 손, 다리와 발, 얼굴, 배와 같은 신체 부위를 배치함으로써, ’몸‘이라는 단어 자체가 자아를 가두는 틀처럼 느껴지는 감각을 시각화했다. 각 신체부위는 더 큰 틀 안에서 눌리고 뒤틀려있으며, 그 사이로 남은 네거티브 스페이스가 글자의 형상을 드러낸다. 우리는 몸을 소유하는가, 혹은 몸에 의해 구속되는가?",
+    "images": ["images/body/n.png", "images/body/p.png"]
+  },
+  {
+    "title": "Girlhead",
+    "year": "2025",
+    "tags": ["2025", "comic"],
+    "thumb": "images/girlhead/thumb.jpg",
+    "descShort": "",
+    "descEn": "What it means to be a girl",
+    "descKo": "소녀가 된다는 것은",
+    "images": [
+      "images/girlhead/cover_1.png",
+      "images/girlhead/1.png", 
+      "images/girlhead/2.png", 
+      "images/girlhead/3.png", 
+      "images/girlhead/4.png",
+      "images/girlhead/5.png", 
+      "images/girlhead/6.png", 
+      "images/girlhead/7.png", 
+      "images/girlhead/8.png",
+      "images/girlhead/9.png", 
+      "images/girlhead/10.png", 
+      "images/girlhead/11.png", 
+      "images/girlhead/cover_2.png"]
+  },
+  {
+    "title": "분신",
+    "year": "2022",
+    "tags": ["2022", "poster", "editorial", "typography"],
+    "thumb": "images/alter ego/thumb.jpg",
+    "descShort": "",
+    "descEn": "These are a poster and a leaflet for a film festival on the theme of alter egos organized by the film club Cinecom. The title of the festival was distorted using a scanner to express the impression of the theme.",
+    "descKo": "영화 동아리 씨네꼼에서 진행된 분신 을 주제로 한 영화제의 포스터와 리플렛을 디자인했다. 영화제의 타이틀을 스캐너를 사용해 왜곡하여 주제가 주는 인상을 표현했다.",
+    "images": ["images/alter ego/alterego_1.jpg"]
+  },
+    {
+    "title": "너말고니수염",
+    "year": "2023",
+    "tags": ["2022", "editorial", "illustration"],
+    "thumb": "images/beard/thumb.jpg",
+    "descShort": "",
+    "descEn": "This is a book of beard that contains stories about them. It includes recommendations for beard styles for different face shapes. The cover is a face without a beard, but it can be turn into different bearded faces with various strips of paper.",
+    "descKo": "수염과 수염에 얽힌 이야기들을 담은 책을 제작했다. 얼굴형 별 수염 스타일에 대한 추천도 실려있다. 표지는 수염이 없는 얼굴인데, 띠지를 둘러 여러가지 수염으로 바꿔볼 수 있도록 했다.",
+    "images": ["images/beard/beard_1.jpg", "images/beard/beard_2.jpg"]
+  },
+  {
+    "title": "(!)Bubbleshitter",
+    "year": "2025",
+    "tags": ["2025", "editorial"],
+    "thumb": "images/bubble shitter/thumb.jpg",
+    "descShort": "",
+    "descEn": "text",
+    "descKo": "text",
+    "images": ["images/bubble shitter/thumb.jpg"]
+  },
+  {
+    "title": "Buttloon",
+    "year": "2022",
+    "tags": ["2022", "typography", "font"],
+    "thumb": "images/Buttloon/thumb.jpg",
+    "descShort": "",
+    "descEn": "Buttloon is a bold and distinctive font that combines two round concepts: the butt and the balloon. It is designed as a variable font that shows the stages of a deflated balloon filling up with air.To emphasize the shape of the butt, the ink traps are formed like the crease of buttocks. The ends of the letters are puffed up, resembling inflated balloons.",
+    "descKo": "Buttloon은 엉덩이와 풍선이라는 두 가지 둥근 개념을 결합한 대담하고 독특한 폰트이다. 바람빠진 풍선에 바람이 채워지며 빵빵해지는 단계를 배리어블 폰트로 만들었다. 엉덩이의 형태를 강조하기 위해 잉크 트랩을 엉덩이의 골 처럼 만들었다. 글자의 끝부분은 풍선처럼 부풀려져 있다.",
+    "images": ["images/Buttloon/1-ezgif.com-speed.gif", "images/Buttloon/Buttloon typeface_64.jpg", "images/Buttloon/Buttloon typeface_67.jpg"]
+  },
+  {
+    "title": "Everyday Screenshot Archive",
+    "year": "2025",
+    "tags": ["2025", "web"],
+    "thumb": "images/everyday/thumb.jpg",
+    "descShort": "",
+    "descEn": "This is an archive of automatic and intentional screenshots of my iPhone, iPad, and MacBook, from February 19th, 8:43 PM to April 9th, 6:00 PM. (Archiving is not yet finished.) Screenshots were automatically taken every midnight, noon, 6 PM, three hours before sunset, when the battery level fell below 15% or 50%, and when it rose above 50%. Some screenshots were taken intentionally.",
+    "descKo": "이 기록물은 2월 19일 오후 8시 43분부터 4월 9일 오후 6시까지, 내 아이폰, 아이패드, 맥북에서 자동 또는 의도적으로 찍힌 스크린샷 아카이브이다. (아카이빙은 아직 완료되지 않았다.) 스크린샷은 자정, 정오, 오후 6시, 일몰 3시간 전, 배터리 잔량이 15% 이하·50% 이하로 떨어질 때, 그리고 50%를 초과할 때 자동으로 찍혔다. 일부 스크린샷은 의도적으로 촬영되었다.",
+    "images": ["images/everyday/ed.gif","images/everyday/ed.png"]
+  },
+  {
+    "title": "(!)불시착외계유민 (Extraterrestrial Drifters)",
+    "year": "2021",
+    "tags": ["2021", "illustration"],
+    "thumb": "images/extraterrestrial/thumb.jpg",
+    "descShort": "",
+    "descEn": "Text",
+    "descKo": "텍스트",
+    "images": ["images/extraterrestrial/image1.png", "images/extraterrestrial/image2.png"]
+  },
+  {
+    "title": "Francophonie",
+    "year": "2023",
+    "tags": ["2023", "poster", "editorial"],
+    "thumb": "images/Francophonie/thumb.jpg",
+    "descShort": "",
+    "descEn": "These are a poster and a booklet for a film festival featuring Francophonie films. Since language was the only thing that united the films, I focused on the calibration and color of the images, rather than the visual symbolism. Even if the films are French, they are not necessarily made in France, so I tried to avoid the iconic colors that we usually associate with France as much as possible.",
+    "descKo": "프랑스어 영화를 주제로 한 영화제의 포스터와 소책자를 디자인했다. 영화들을 하나로 묶는 것이 언어밖에 없었기 때문에 구상적인 시각적 상징보다는 이미지의 보정 방법과 색상에 주목했다. 프랑스어 영화이더라도 프랑스에서 제작한 영화가 아닌 경우가 있기 때문에 일반적으로 프랑스 하면 떠오르는 상징색을 최대한 피하려고 했다.",
+    "images": ["images/Francophonie/image42.jpg", "images/Francophonie/image43.png", "images/Francophonie/image44.png", "images/Francophonie/image45.png"]
+  },
+  {
+    "title": "이 영화는 내게 용기를 줍니다 (MAY courage be with you!)",
+    "year": "2023",
+    "tags": ["2023", "poster", "editorial"],
+    "thumb": "images/may courage/thumb.jpg",
+    "descShort": "",
+    "descEn": "This project includes a poster and a booklet designed for the Cinecoms Film Festival May Courage Be with You. Given the abstract theme and the diverse visual tones of each film, I created original illustrations rather than relying on existing images, aiming for a cohesive visual identity. Using a calm color palette, I sought to capture the festival’s theme of films that bring energy and renewal to the late spring doldrums.",
+    "descKo": "영화 동아리 씨네꼼의 영화제 <이 영화는 내게 용기를 줍니다> 의 포스터와 소책자를 디자인했다. 주제가 추상적이고 각 영화의 시각적 톤이 제각각이었기 때문에 통일된 룩을 만들기 위해 기존 사진을 사용하지 않고 따로 일러스트를 그렸다. 늦봄의 권태로움에 활력을 주는 영화 라는 주제를 차분한 색감으로 표현하고자 했다.",
+    "images": ["images/may courage/image34.jpg", "images/may courage/image35.png", "images/may courage/image36.png"]
+  },
+  {
+    "title": "Nothing But The Blood",
+    "year": "2024",
+    "tags": ["2024", "poster", "typography", "font", "MD"],
+    "thumb": "images/nbtb/thumb.jpg",
+    "descShort": "",
+    "descEn": "I designed the whole visual concept for a winter retreat in early 2024. In this project, I design main posters, the merch hoodie, sticker pack, and the typeface. I designed the whole typeface just for this project, into semi bold and bold versions.",
+    "descKo": "2024년 초에 겨울 리트릿을 위한 전체 비주얼 컨셉을 디자인했다. 이 프로젝트에서 메인 포스터, 머천다이즈 후드, 스티커 팩, 그리고 서체를 디자인했다. 이 프로젝트를 위해 완전히 새로운 서체를 세미볼드와 볼드 버전으로 디자인했다.",
+    "images": ["images/nbtb/poster_1.png","images/nbtb/poster_2.png","images/nbtb/-2024-11-18--12.53.57.png","images/nbtb/sticker.png", "images/nbtb/hoodie.png"]
+  },
+  {
+    "title": "환경대학원 옆 주차장과 74동을 잇는 지름길 (A Shortcut Between The Parking Lot Next To Graduate School of Environment Studies And Building 74)",
+    "year": "2023",
+    "tags": ["2023", "editorial"],
+    "thumb": "images/roadbook/thumb.jpg",
+    "descShort": "",
+    "descEn": "This little book is a subjective map of a shortcut I used to walk. It should be turned upside down instead of sideways. I tried to give the feeling of a narrow and stiff staircase when entering this shortcut. To show a tall lamp in the street, I inserted a semi-transparent paper.",
+    "descKo": "이 작은 책은 내가 걸어 다니던 지름길을 주관적으로 기록한 지도이다. 옆으로 넘기는 대신 거꾸로 뒤집어 읽어야 한다. 이 지름길에 들어설 때 느껴지는 좁고 뻣뻣한 계단의 느낌을 담고자 했다. 거리의 키 큰 가로등을 보여주기 위해 반투명한 종이를 삽입했다.",
+    "images": ["images/roadbook/roadbook.jpg"]
+  }
+]
