@@ -95,6 +95,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       .replaceAll('"','&quot;').replaceAll("'",'&#039;');
   }
   
+  function createLinks(text) {
+  // [텍스트](주소) 패턴을 찾아서 <a> 태그로 바꿔주는 정규식
+  const linkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  return text.replace(linkRegex, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+}
+
   function renderProjects() {
     const list = getSortedProjects();
     grid.innerHTML = list.map((p, i) => `
@@ -216,10 +222,10 @@ function openModalForCard(cardEl) {
   mSubtitle.textContent = descShort;
   mSubtitle.style.display = descShort ? 'block' : 'none';
 
-  mDesc.innerHTML = `
+    mDesc.innerHTML = `
     <div class="modal-desc-2col">
-      <div class="desc-col en">${descEn || ''}</div>
-      <div class="desc-col ko">${descKo || ''}</div>
+      <div class="desc-col en">${createLinks(descEn)}</div>
+      <div class="desc-col ko">${createLinks(descKo)}</div>
     </div>
   `;
 
