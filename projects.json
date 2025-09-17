@@ -201,6 +201,17 @@
     "descEn": "This poster was designed for the Cinecom Film Club’s Vampires in the Movies festival. Featuring a scene from Only Lovers Left Alive, one of the screenings, the poster evokes a cool, gothic atmosphere.",
     "descKo": "이 포스터는 Cinecom 영화 동아리의 <영화 속 뱀파이어> 영화제를 위해 제작되었다. 상영작 중 하나인 Only Lovers Left Alive의 한 장면을 메인 이미지로 사용해 서늘하고 고딕적인 분위기를 담아냈다.",
     "images": ["images/vampire/image37.jpg"]
+  },
+  {
+    "order": 18,
+    "title": "내겐 아무 관계 없다는 것을",
+    "year": "2025",
+    "tags": ["2025", "typography", "lettering"],
+    "thumb": "images/ngam/thumb.jpg",
+    "descShort": "from 유재하 - 우울한 편지",
+    "descEn": "This work was created during the Notefolio Korean Lettering Workshop. It is based on the final lyrics of Yoo Jae-ha’s “Gloomy Letter”, referencing Naul’s slow bossa nova arrangement. The design aims to combine the neatness of a handwritten letter with the rhythmic flow of the music.",
+    "descKo": "노트폴리오 한글 레터링 워크숍에서 만든 작업이다. 유재하의 〈우울한 편지〉 마지막 가사를 소재로 삼았으며, 나얼이 느린 보사노바 풍으로 편곡한 버전을 참고했다. 손편지의 단정한 느낌과 음악이 주는 리듬감을 함께 담아내고자 했다.",
+    "images": ["images/ngam/2line.jpg", "images/ngam/sketch.jpg"]
   }
   
 ]

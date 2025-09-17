@@ -333,7 +333,7 @@ body{
 h1, h2, h3{ line-height: var(--leading-tight); margin: 0 0 .5em; }
 
 /* 본문/설명 */
-p, .desc-col{ line-height: var(--leading); }
+p, .desc-col{ font-family: var(--font-latin); line-height: var(--leading); }
 
 /* 버튼/태그 가독성 */
 #filter-buttons button, .tag{ line-height: 1.2; }
@@ -649,6 +649,7 @@ body:not(.disable-transition) .about-name-svg {
 
 /* 모바일 + 공통 스타일 */
 .about-footer {
+  font-family: var(--font-latin);
   padding: 2rem;
   text-align: center; /* 텍스트를 가운데 정렬 */
   margin-top: 3rem; /* 위 콘텐츠(프로젝트 그리드)와의 간격 */
@@ -784,4 +785,10 @@ body:not(.disable-transition) .about-name-svg {
   color: #cc3939;
   background-color: #a8d1e980;
   text-decoration: none; /* 마우스를 올렸을 때 밑줄 제거 */
+}
+
+body{
+  font-family: var(--font-latin), var(--font-korean);
+  line-height: var(--leading);
+  color: #cc3939;
 }
